@@ -1,8 +1,8 @@
 <div class="mx-auto max-w-7xl px-4">
     <!-- Search bar. -->
     <div class="bg-red-200 flex my-4 mx-auto max-w-xl justify-center">
-        <input class="px-3 py-1 m-1 w-full" type="search">
-        <button class="rounded-md w-48 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
+        <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full" type="search">
+        <button (click)="getWiki()" class="rounded-md w-48 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
             Search Poet
         </button>
     </div>
@@ -16,14 +16,11 @@
 
         <!-- List of poems. -->
         <div class="bg-green-200 basis-3/5 my-4">
-            <div class="my-14 first:mt-5 last:mb-5">
-                <h2 class="text-2xl font-bold flex justify-center">Alone</h2>
-                <h3 class="text-md italic flex justify-center text-gray-800">by Edgar Allan Poe</h3>
+            <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
+                <h2 class="text-2xl font-bold flex justify-center">{{poem.title}}</h2>
+                <h3 class="text-md italic flex justify-center text-gray-800">by {{poem.author}}</h3>
                 <div class="my-2">
-                    <p class="flex justify-center">In visions of the dark night</p>
-                    <p class="flex justify-center">I have dreamed of joy departed-</p>
-                    <p class="flex justify-center">But a waking dream of life and light</p>
-                    <p class="flex justify-center">Hath left me broken-hearted.</p>
+                    <p *ngFor="let line of poem.lines" class="flex justify-center">{{line}}</p>
                 </div>
             </div>
         </div>
