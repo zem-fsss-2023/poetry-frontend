@@ -7,15 +7,15 @@
         </button>
     </div>
 
-    <div class="flex flex-col sm:flex-row my-4">
+    <div class="flex flex-col sm:flex-row my-4 max-h-96">
         <!-- About section. -->
-        <div class="bg-blue-200 basis-2/5 p-5 my-4">
+        <div class="bg-blue-200 basis-2/5 p-5 my-4 overflow-scroll">
             <h2 class="text-2xl font-bold">William Shakespeare</h2>
             <p>William Shakespeare ( 26 April 1564 - 23 April 1616) was an English playwright, poet and actor. He is regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is often called England's national poet and the \"Bard of Avon\" (or simply \"the Bard\"). His extant works, including collaborations, consist of some 39 plays, 154 sonnets, three long narrative poems, and a few other verses, some of uncertain authorship. His plays have been translated into every major living language and are performed more often than those of any other playwright. He remains arguably the most influential writer in the English language, and his works continue to be studied and reinterpreted.</p>
         </div>
 
         <!-- List of poems. -->
-        <div class="bg-green-200 basis-3/5 my-4">
+        <div class="bg-green-200 basis-3/5 my-4 overflow-scroll">
             <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
                 <h2 class="text-2xl font-bold flex justify-center">{{poem.title}}</h2>
                 <h3 class="text-md italic flex justify-center text-gray-800">by {{poem.author}}</h3>
@@ -27,28 +27,24 @@
     </div>
 
     <!-- Write poem section. -->
-    <div class="bg-yellow-200 my-4 mx-auto max-w-3xl">
+    <div *ngIf="this.poetName.length > 0" class="bg-yellow-200 my-4 mx-auto max-w-3xl">
         <div class="bg-red-200 flex justify-between">
             <div>
-                <input class="px-3 py-1 m-1 w-40" type="search">
-                <button class="rounded-md w-32 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
+                <input [(ngModel)]="topicInput" class="px-3 py-1 m-1 w-40" type="search">
+                <button (click)="addTopic()" class="rounded-md w-32 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
                     Add Topic
                 </button>
             </div>
 
-            <button class="rounded-md w-32 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
+            <button (click)="writePoem()" class="rounded-md w-32 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
                 Write Poem
             </button>
         </div>
         <div class="my-2">
-            <span class="border-2 bg-slate-100 border-neutral-400 text-sm rounded-2xl py-1 px-2 m-1">nature</span>
-            <span class="border-2 bg-slate-100 border-neutral-400 text-sm rounded-2xl py-1 px-2 m-1">dog</span>
+            <span *ngFor="let topic of topics" class="border-2 bg-slate-100 border-neutral-400 text-sm rounded-2xl py-1 px-2 m-1">{{topic}}</span>
         </div>
         <div class="my-4">
-            <p class="flex justify-center">In visions of the dark night</p>
-            <p class="flex justify-center">I have dreamed of joy departed-</p>
-            <p class="flex justify-center">But a waking dream of life and light</p>
-            <p class="flex justify-center">Hath left me broken-hearted.</p>
+            <p *ngFor="let line of generatedPoem" class="flex justify-center">{{line}}</p>
         </div>
     </div>
 </div>
