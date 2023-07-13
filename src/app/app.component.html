@@ -7,7 +7,7 @@
         </button>
     </div>
 
-    <div class="flex flex-col sm:flex-row my-4 max-h-96">
+    <div *ngIf="poetEntered" class="flex flex-col sm:flex-row my-4 max-h-96">
         <!-- About section. -->
         <div class="basis-2/5 p-5 my-4 overflow-scroll">
             <h2 class="text-2xl font-bold">{{wikiTitle}}</h2>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Write poem section. -->
-    <div *ngIf="this.poetName.length > 0" class="my-4 mx-auto max-w-3xl">
+    <div *ngIf="poetEntered" class="my-4 mx-auto max-w-3xl">
         <div class="flex justify-between">
             <div>
                 <input [(ngModel)]="topicInput" class="px-3 py-1 m-1 w-40 border-gray-700 border-2" type="search">

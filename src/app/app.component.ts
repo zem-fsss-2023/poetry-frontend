@@ -11,6 +11,7 @@ import { PoetryService } from './poetry.service';
 })
 export class AppComponent implements OnDestroy {
   title = 'poetry-frontend';
+  poetEntered: boolean = false;
   poetName: string = '';
   poems: any = [];
 
@@ -33,6 +34,7 @@ export class AppComponent implements OnDestroy {
 
 
   getPoems() {
+    this.poetEntered = true;
     this.topicInput = '';
     this.topics = [];
     this.generatedPoem = [];
@@ -55,6 +57,7 @@ export class AppComponent implements OnDestroy {
   }
 
   writePoem() {
+    this.generatedPoem = [];
     this.gptService.writePoem(this.poetName, []).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
       this.generatedPoem = response.split(/\r?\n/);
       console.log(this.generatedPoem)
