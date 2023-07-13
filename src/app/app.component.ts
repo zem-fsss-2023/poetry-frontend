@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { WikiServiceService } from './wiki-service.service';
 import { Subject, takeUntil } from 'rxjs';
 import { GptService } from './gpt.service';
+import { PoetryService } from './poetry.service';
 
 @Component({
   selector: 'app-root',
@@ -17,22 +18,32 @@ export class AppComponent implements OnDestroy {
   topics: string[] = [];
   generatedPoem: string[] = [];
 
+  wikiTitle: string = '';
+  wikiContent: string = '';
+
   private ngUnsubscribe$ = new Subject();
 
   constructor(
     private wikiService: WikiServiceService,
-    private gptService: GptService) {
+    private gptService: GptService,
+    private poetryService: PoetryService) {
 
   }
 
-  getWiki() {
 
+
+  getPoems() {
     this.topicInput = '';
     this.topics = [];
     this.generatedPoem = [];
 
-    this.wikiService.getWiki(this.poetName).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
+    this.poetryService.getPoems(this.poetName).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
       this.poems = response;
+    });
+
+    this.wikiService.getWiki(this.poetName).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
+      this.wikiTitle = response.title;
+      this.wikiContent = response.parsedParagraphs[0];
     });
   }
 

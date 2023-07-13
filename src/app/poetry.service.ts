@@ -8,7 +8,10 @@ import {Observable} from "rxjs";
 export class PoetryService {
 
   constructor(private httpClient: HttpClient) { }
-  getPoets(): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/api/poets');
+  getPoems(poetName: string): Observable<any> {
+    let params: HttpParams = new HttpParams();
+    params = params.append('poet', poetName);
+
+    return this.httpClient.get('http://localhost:8080/api/poems', {params: params});
   }
 }

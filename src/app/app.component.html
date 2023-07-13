@@ -2,7 +2,7 @@
     <!-- Search bar. -->
     <div class="flex my-4 mx-auto max-w-xl justify-center">
         <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full border-gray-700 border-2" type="search">
-        <button (click)="getWiki()" class="rounded-md w-48 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
+        <button (click)="getPoems()" class="rounded-md w-48 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
             Search Poet
         </button>
     </div>
@@ -10,8 +10,8 @@
     <div class="flex flex-col sm:flex-row my-4 max-h-96">
         <!-- About section. -->
         <div class="basis-2/5 p-5 my-4 overflow-scroll">
-            <h2 class="text-2xl font-bold">William Shakespeare</h2>
-            <p>William Shakespeare ( 26 April 1564 - 23 April 1616) was an English playwright, poet and actor. He is regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is often called England's national poet and the \"Bard of Avon\" (or simply \"the Bard\"). His extant works, including collaborations, consist of some 39 plays, 154 sonnets, three long narrative poems, and a few other verses, some of uncertain authorship. His plays have been translated into every major living language and are performed more often than those of any other playwright. He remains arguably the most influential writer in the English language, and his works continue to be studied and reinterpreted.</p>
+            <h2 class="text-2xl font-bold">{{wikiTitle}}</h2>
+            <p>{{wikiContent}}</p>
         </div>
 
         <!-- List of poems. -->

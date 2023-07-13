@@ -12,8 +12,8 @@ export class WikiServiceService {
 
   getWiki(poetName: string): Observable<any> {
     let params: HttpParams = new HttpParams();
-    params = params.append('poet', poetName);
+    params = params.append('title', poetName);
 
-    return this.httpClient.get('http://localhost:8080/api/poems', {params: params});
+    return this.httpClient.get('http://localhost:8080/api/wiki', {params: params});
   }
 }
