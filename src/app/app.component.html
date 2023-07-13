@@ -1,7 +1,7 @@
 <div class="mx-auto max-w-7xl px-4">
     <!-- Search bar. -->
-    <div class="bg-red-200 flex my-4 mx-auto max-w-xl justify-center">
-        <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full" type="search">
+    <div class="flex my-4 mx-auto max-w-xl justify-center">
+        <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full border-gray-700 border-2" type="search">
         <button (click)="getWiki()" class="rounded-md w-48 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
             Search Poet
         </button>
@@ -9,13 +9,13 @@
 
     <div class="flex flex-col sm:flex-row my-4 max-h-96">
         <!-- About section. -->
-        <div class="bg-blue-200 basis-2/5 p-5 my-4 overflow-scroll">
+        <div class="basis-2/5 p-5 my-4 overflow-scroll">
             <h2 class="text-2xl font-bold">William Shakespeare</h2>
             <p>William Shakespeare ( 26 April 1564 - 23 April 1616) was an English playwright, poet and actor. He is regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is often called England's national poet and the \"Bard of Avon\" (or simply \"the Bard\"). His extant works, including collaborations, consist of some 39 plays, 154 sonnets, three long narrative poems, and a few other verses, some of uncertain authorship. His plays have been translated into every major living language and are performed more often than those of any other playwright. He remains arguably the most influential writer in the English language, and his works continue to be studied and reinterpreted.</p>
         </div>
 
         <!-- List of poems. -->
-        <div class="bg-green-200 basis-3/5 my-4 overflow-scroll">
+        <div class="basis-3/5 my-4 overflow-scroll">
             <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
                 <h2 class="text-2xl font-bold flex justify-center">{{poem.title}}</h2>
                 <h3 class="text-md italic flex justify-center text-gray-800">by {{poem.author}}</h3>
@@ -27,10 +27,10 @@
     </div>
 
     <!-- Write poem section. -->
-    <div *ngIf="this.poetName.length > 0" class="bg-yellow-200 my-4 mx-auto max-w-3xl">
-        <div class="bg-red-200 flex justify-between">
+    <div *ngIf="this.poetName.length > 0" class="my-4 mx-auto max-w-3xl">
+        <div class="flex justify-between">
             <div>
-                <input [(ngModel)]="topicInput" class="px-3 py-1 m-1 w-40" type="search">
+                <input [(ngModel)]="topicInput" class="px-3 py-1 m-1 w-40 border-gray-700 border-2" type="search">
                 <button (click)="addTopic()" class="rounded-md w-32 px-4 py-1 m-1 bg-gray-300 hover:bg-gray-200">
                     Add Topic
                 </button>
