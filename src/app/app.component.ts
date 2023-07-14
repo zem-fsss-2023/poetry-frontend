@@ -73,7 +73,7 @@ export class AppComponent implements OnDestroy {
     this.writeButtonDisabled = true;
     this.generatedPoem = [];
 
-    this.gptService.writePoem(this.poetName, []).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
+    this.gptService.writePoem(this.poetName, this.topics).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
       this.generatedPoem = response.split(/\r?\n/);
       this.writeButtonDisabled = false;
       this.topics = [];
