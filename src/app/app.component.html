@@ -17,7 +17,7 @@
 
 
 <div class="mx-auto max-w-7xl px-7 my-8">
-  <h1 class="text-4xl font-bold cursive text-rose-200 flex justify-center" style="font-family: 'Brush Script MT'" >Where words intertwine, the poetry divine.</h1>
+  <h1 class="text-4xl font-bold cursive text-rose-200 flex justify-center font-sacramento">Where words intertwine, the poetry divine.</h1>
 
   <!-- Search bar -->
   <div class="flex my-4 mx-auto max-w-xl justify-center">
@@ -34,14 +34,14 @@
   <div *ngIf="poetEntered" class="flex flex-col sm:flex-row my-4">
     <!-- About section -->
     <div class="basis-2/5 p-5 my-4 overflow-auto h-5/6 max-h-96">
-      <h2 class="text-4xl font-bold flex justify-center underline decoration-rose-300" style="font-family: 'Brush Script MT'">{{wikiTitle}}</h2>
+      <h2 class="text-4xl font-bold flex justify-center underline decoration-rose-300 font-sacramento">{{wikiTitle}}</h2>
       <p class="flex justify-center">{{wikiContent}}</p>
     </div>
 
     <!-- List of poems -->
     <div class="basis-3/5 my-4 overflow-y-scroll max-h-96">
       <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
-        <h2 class="text-3xl font-bold cursive flex justify-center underline decoration-rose-300" style="font-family: 'Brush Script MT'">{{poem.title}}</h2>
+        <h2 class="text-3xl font-bold cursive flex justify-center underline decoration-rose-300 font-sacramento">{{poem.title}}</h2>
         <h3 class="text-md italic flex justify-center text-gray-400">by {{poem.author}}</h3>
         <div class="my-2">
           <p *ngFor="let line of poem.lines" class="flex justify-center">{{line}}</p>

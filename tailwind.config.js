@@ -4,9 +4,13 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    minHeight: {
-      '3/4': '75%',
-    }
+    extend: {
+      fontFamily: {
+        'sacramento': ['"Sacramento"', 'cursive'],
+        'esteban': ['"Esteban"', 'cursive'],
+        'mont': ['"Montserrat"', 'cursive'],
+      },
+    },
   },
   plugins: [],
 }
