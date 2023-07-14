@@ -17,6 +17,6 @@ export class GptService {
       topics: topics
     };
 
-    return this.httpClient.post('http://localhost:8080/api/gpt', body, { responseType: 'text' });
+    return this.httpClient.post('https://fsss-poetry.azurewebsites.net/api/gpt', body, { responseType: 'text' });
   }
 }

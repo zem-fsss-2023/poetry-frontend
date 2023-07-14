@@ -14,6 +14,6 @@ export class WikiServiceService {
     let params: HttpParams = new HttpParams();
     params = params.append('title', poetName);
 
-    return this.httpClient.get('http://localhost:8080/api/wiki', {params: params});
+    return this.httpClient.get('https://fsss-poetry.azurewebsites.net/api/wiki', {params: params});
   }
 }
