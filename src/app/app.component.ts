@@ -14,6 +14,7 @@ export class AppComponent implements OnDestroy {
   poetEntered: boolean = false;
   poetName: string = '';
   poems: any = [];
+  poets: string[] = [];
 
   topicInput: string = ''
   topics: string[] = [];
@@ -29,9 +30,14 @@ export class AppComponent implements OnDestroy {
     private gptService: GptService,
     private poetryService: PoetryService) {
 
+      this.getPoets();
   }
 
-
+  getPoets() {
+    this.poetryService.getPoets().pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
+      this.poets = response;
+    });
+  }
 
   getPoems() {
     this.poetEntered = true;

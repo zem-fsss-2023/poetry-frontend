@@ -13,221 +13,65 @@
     z-index: 9999;
     overflow: auto;
   }
-
-  .big p {
-    line-height: 1.5;
-    text-align: center;
-  }
-  .loader {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 4px solid #fff;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-
 </style>
 
 
+<div class="mx-auto max-w-8xl px-7 my-8">
+  <h1 class="text-4xl font-bold cursive text-pink-300 flex justify-center" style="font-family: 'Brush Script MT'" >Where words intertwine, the poetry divine.</h1>
 
-<div class="big">
-  <div class="mx-auto max-w-8xl px-7">
-    <h1 class="text-4xl font-bold cursive text-pink-300 flex justify-center" style="font-family: 'Brush Script MT'" >Where words intertwine, the poetry divine.</h1>
+  <!-- Search bar -->
+  <div class="flex my-4 mx-auto max-w-xl justify-center">
+    <div class="relative mx-2">
+      <div class="overflow-dropdown">
 
-    <!-- Search bar -->
-    <div class="flex my-4 mx-auto max-w-xl justify-center">
-      <div class="relative">
-        <div class="overflow-dropdown">
-
-          <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full overflow-scroll border-gray-700 border-2 bg-white text-black rounded-full" type="search">
-          <select [(ngModel)]="poetName" class="absolute inset-0 text-black opacity-0 w-full h-full cursor-pointer">
-            <option value="Adam Lindsay Gordon">Adam Lindsay Gordon</option>
-            <option value="Alan Seeger">Alan Seeger</option>
-            <option value="Alexander Pope">Alexander Pope</option>
-            <option value="Algernon Charles Swinburne">Algernon Charles Swinburne</option>
-            <option value="Ambrose Bierce">Ambrose Bierce</option>
-            <option value="Amy Levy">Amy Levy</option>
-            <option value="Andrew Marvell">Andrew Marvell</option>
-            <option value="Ann Taylor">Ann Taylor</option>
-            <option value="Anne Bradstreet">Anne Bradstreet</option>
-            <option value="Anne Bronte">Anne Bronte</option>
-            <option value="Anne Killigrew">Anne Killigrew</option>
-            <option value="Anne Kingsmill Finch">Anne Kingsmill Finch</option>
-            <option value="Annie Louisa Walker">Annie Louisa Walker</option>
-            <option value="Arthur Hugh Clough">Arthur Hugh Clough</option>
-            <option value="Ben Jonson">Ben Jonson</option>
-            <option value="Charles Kingsley">Charles Kingsley</option>
-            <option value="Charles Sorley">Charles Sorley</option>
-            <option value="Charlotte Bronte">Charlotte Bronte</option>
-            <option value="Charlotte Smith">Charlotte Smith</option>
-            <option value="Christina Rossetti">Christina Rossetti</option>
-            <option value="Christopher Marlowe">Christopher Marlowe</option>
-            <option value="Christopher Smart">Christopher Smart</option>
-            <option value="Coventry Patmore">Coventry Patmore</option>
-            <option value="Edgar Allan Poe">Edgar Allan Poe</option>
-            <option value="Edmund Spenser">Edmund Spenser</option>
-            <option value="Edward Fitzgerald">Edward Fitzgerald</option>
-            <option value="Edward Lear">Edward Lear</option>
-            <option value="Edward Taylor">Edward Taylor</option>
-            <option value="Edward Thomas">Edward Thomas</option>
-            <option value="Eliza Cook">Eliza Cook</option>
-            <option value="Elizabeth Barrett Browning">Elizabeth Barrett Browning</option>
-            <option value="Emily Bronte">Emily Bronte</option>
-            <option value="Emily Dickinson">Emily Dickinson</option>
-            <option value="Emma Lazarus">Emma Lazarus</option>
-            <option value="Ernest Dowson">Ernest Dowson</option>
-            <option value="Eugene Field">Eugene Field</option>
-            <option value="Francis Thompson">Francis Thompson</option>
-            <option value="Geoffrey Chaucer">Geoffrey Chaucer</option>
-            <option value="George Eliot">George Eliot</option>
-            <option value="George Gordon, Lord Byron">George Gordon, Lord Byron</option>
-            <option value="George Herbert">George Herbert</option>
-            <option value="George Meredith">George Meredith</option>
-            <option value="Gerard Manley Hopkins">Gerard Manley Hopkins</option>
-            <option value="Helen Hunt Jackson">Helen Hunt Jackson</option>
-            <option value="Henry David Thoreau">Henry David Thoreau</option>
-            <option value="Henry Vaughan">Henry Vaughan</option>
-            <option value="Henry Wadsworth Longfellow">Henry Wadsworth Longfellow</option>
-            <option value="Hugh Henry Brackenridge">Hugh Henry Brackenridge</option>
-            <option value="Isaac Watts">Isaac Watts</option>
-            <option value="James Henry Leigh Hunt">James Henry Leigh Hunt</option>
-            <option value="James Thomson">James Thomson</option>
-            <option value="James Whitcomb Riley">James Whitcomb Riley</option>
-            <option value="Jane Austen">Jane Austen</option>
-            <option value="Jane Taylor">Jane Taylor</option>
-            <option value="John Clare">John Clare</option>
-            <option value="John Donne">John Donne</option>
-            <option value="John Dryden">John Dryden</option>
-            <option value="John Greenleaf Whittier">John Greenleaf Whittier</option>
-            <option value="John Keats">John Keats</option>
-            <option value="John McCrae">John McCrae</option>
-            <option value="John Milton">John Milton</option>
-            <option value="John Trumbull">John Trumbull</option>
-            <option value="John Wilmot">John Wilmot</option>
-            <option value="Jonathan Swift">Jonathan Swift</option>
-            <option value="Joseph Warton">Joseph Warton</option>
-            <option value="Joyce Kilmer">Joyce Kilmer</option>
-            <option value="Julia Ward Howe">Julia Ward Howe</option>
-            <option value="Jupiter Hammon">Jupiter Hammon</option>
-            <option value="Katherine Philips">Katherine Philips</option>
-            <option value="Lady Mary Chudleigh">Lady Mary Chudleigh</option>
-            <option value="Lewis Carroll">Lewis Carroll</option>
-            <option value="Lord Alfred Tennyson">Lord Alfred Tennyson</option>
-            <option value="Louisa May Alcott">Louisa May Alcott</option>
-            <option value="Major Henry Livingston, Jr.">Major Henry Livingston, Jr.</option>
-            <option value="Mark Twain">Mark Twain</option>
-            <option value="Mary Elizabeth Coleridge">Mary Elizabeth Coleridge</option>
-            <option value="Matthew Arnold">Matthew Arnold</option>
-            <option value="Matthew Prior">Matthew Prior</option>
-            <option value="Michael Drayton">Michael Drayton</option>
-            <option value="Oliver Goldsmith">Oliver Goldsmith</option>
-            <option value="Oliver Wendell Holmes">Oliver Wendell Holmes</option>
-            <option value="Oscar Wilde">Oscar Wilde</option>
-            <option value="Paul Laurence Dunbar">Paul Laurence Dunbar</option>
-            <option value="Percy Bysshe Shelley">Percy Bysshe Shelley</option>
-            <option value="Philip Freneau">Philip Freneau</option>
-            <option value="Phillis Wheatley">Phillis Wheatley</option>
-            <option value="Ralph Waldo Emerson">Ralph Waldo Emerson</option>
-            <option value="Richard Crashaw">Richard Crashaw</option>
-            <option value="Richard Lovelace">Richard Lovelace</option>
-            <option value="Robert Browning">Robert Browning</option>
-            <option value="Robert Burns">Robert Burns</option>
-            <option value="Robert Herrick">Robert Herrick</option>
-            <option value="Robert Louis Stevenson">Robert Louis Stevenson</option>
-            <option value="Robert Southey">Robert Southey</option>
-            <option value="Robinson">Robinson</option>
-            <option value="Rupert Brooke">Rupert Brooke</option>
-            <option value="Samuel Coleridge">Samuel Coleridge</option>
-            <option value="Samuel Johnson">Samuel Johnson</option>
-            <option value="Sarah Flower Adams">Sarah Flower Adams</option>
-            <option value="Sidney Lanier">Sidney Lanier</option>
-            <option value="Sir John Suckling">Sir John Suckling</option>
-            <option value="Sir Philip Sidney">Sir Philip Sidney</option>
-            <option value="Sir Thomas Wyatt">Sir Thomas Wyatt</option>
-            <option value="Sir Walter Raleigh">Sir Walter Raleigh</option>
-            <option value="Sir Walter Scott">Sir Walter Scott</option>
-            <option value="Stephen Crane">Stephen Crane</option>
-            <option value="Thomas Campbell">Thomas Campbell</option>
-            <option value="Thomas Chatterton">Thomas Chatterton</option>
-            <option value="Thomas Flatman">Thomas Flatman</option>
-            <option value="Thomas Gray">Thomas Gray</option>
-            <option value="Thomas Hood">Thomas Hood</option>
-            <option value="Thomas Moore">Thomas Moore</option>
-            <option value="Thomas Warton">Thomas Warton</option>
-            <option value="Walt Whitman">Walt Whitman</option>
-            <option value="Walter Savage Landor">Walter Savage Landor</option>
-            <option value="Wilfred Owen">Wilfred Owen</option>
-            <option value="William Allingham">William Allingham</option>
-            <option value="William Barnes">William Barnes</option>
-            <option value="William Blake">William Blake</option>
-            <option value="William Browne">William Browne</option>
-            <option value="William Cowper">William Cowper</option>
-            <option value="William Cullen Bryant">William Cullen Bryant</option>
-            <option value="William Ernest Henley">William Ernest Henley</option>
-            <option value="William Lisle Bowles">William Lisle Bowles</option>
-            <option value="William Morris">William Morris</option>
-            <option value="William Shakespeare">William Shakespeare</option>
-            <option value="William Topaz McGonagall">William Topaz McGonagall</option>
-            <option value="William Vaughn Moody">William Vaughn Moody</option>
-            <option value="William Wordsworth">William Wordsworth</option>
-          </select>
-        </div>
+        <input [(ngModel)]="poetName" class="px-3 py-1 m-1 w-full overflow-scroll border-gray-700 border-2 bg-white text-black rounded-full" type="search">
+        <select [(ngModel)]="poetName" class="absolute inset-0 text-black opacity-0 w-full h-full cursor-pointer">
+          <option *ngFor="let poet of poets" value="{{poet}}">{{poet}}</option>
+        </select>
       </div>
-      <button (click)="getPoems()" class="rounded-full w-48 px-4 py-1 m-1 bg-gray-300 text-black hover:bg-gray-200">
-        Search Poet
-      </button>
+    </div>
+    <button (click)="getPoems()" class="rounded-full w-48 px-4 py-1 my-1 mx-2 bg-gray-300 text-black hover:bg-gray-100 transition-colors duration-200">
+      Search Poet
+    </button>
+  </div>
+
+  <div *ngIf="poetEntered" class="flex flex-col sm:flex-row my-4 max-h-96 rounded-full custom-scrollbar">
+    <!-- About section -->
+    <div class="basis-2/5 p-5 my-4 overflow-auto h-4/5">
+      <h2 class="text-4xl font-bold flex justify-center" style="font-family: 'Brush Script MT'">{{wikiTitle}}</h2>
+      <p class="flex justify-center">{{wikiContent}}</p>
     </div>
 
-
-
-
-    <div *ngIf="poetEntered" class="flex flex-col sm:flex-row my-4 max-h-96 rounded-full custom-scrollbar">
-      <!-- About section -->
-      <div class="basis-2/5 p-5 my-4 overflow-scroll">
-        <h2 class="text-4xl font-bold flex justify-center" style="font-family: 'Brush Script MT'">{{wikiTitle}}</h2>
-        <p class="flex justify-center">{{wikiContent}}</p>
-      </div>
-
-      <!-- List of poems -->
-      <div class="basis-3/5 my-4 overflow-scroll">
-        <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
-          <h2 class="text-4xl font-bold cursive flex justify-center" style="font-family: 'Brush Script MT'">{{poem.title}}</h2>
-          <h3 class="text-md italic flex justify-center text-gray-500">by {{poem.author}}</h3>
-          <div class="my-2">
-            <p *ngFor="let line of poem.lines" class="flex justify-center">{{line}}</p>
-          </div>
+    <!-- List of poems -->
+    <div class="basis-3/5 my-4 overflow-y-scroll">
+      <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
+        <h2 class="text-4xl font-bold cursive flex justify-center" style="font-family: 'Brush Script MT'">{{poem.title}}</h2>
+        <h3 class="text-md italic flex justify-center text-gray-500">by {{poem.author}}</h3>
+        <div class="my-2">
+          <p *ngFor="let line of poem.lines" class="flex justify-center">{{line}}</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Write poem section -->
-    <div *ngIf="poetEntered" class="my-4 mx-auto max-w-3xl">
-      <div class="flex justify-between">
-        <div>
-          <input [(ngModel)]="topicInput" class="px-3 py-1 m-1 w-48 border-gray-700 border-2 text-black rounded-full" type="search">
-          <button (click)="addTopic()" class="rounded-full w-40 px-4 py-1 m-1 bg-gray-300 text-black hover:bg-gray-200">
-            Add Topic
-          </button>
-        </div>
-        <button (click)="writePoem()" class="rounded-full w-40 px-4 py-1 m-1 bg-gray-300 text-black hover:bg-pink-300">
-          Write Poem
+  <!-- Write poem section -->
+  <div *ngIf="poetEntered" class="my-4 mx-auto max-w-3xl">
+    <div class="flex justify-between">
+      <div>
+        <input [(ngModel)]="topicInput" class="px-3 py-1 my-1 mx-2 w-48 border-gray-700 border-2 text-black rounded-full" type="search">
+        <button (click)="addTopic()" class="rounded-full w-40 px-4 py-1 my-1 mx-2 bg-gray-300 text-black hover:bg-gray-100 transition-colors duration-200">
+          Add Topic
         </button>
       </div>
-      <div class="my-2">
-        <span *ngFor="let topic of topics" class="border-2 bg-slate-100 border-neutral-400 text-sm text-black rounded-2xl py-1 px-2 m-1">{{topic}}</span>
-      </div>
-      <div class="my-4">
-        <p *ngFor="let line of generatedPoem" class="flex justify-center text-white">{{line}}</p>
-      </div>
+      <button (click)="writePoem()" class="rounded-full w-40 px-4 py-1 m-1 bg-gray-300 text-black hover:bg-pink-300 transition-colors duration-200">
+        Write Poem
+      </button>
+    </div>
+    <div class="my-2">
+      <span *ngFor="let topic of topics" class="border-2 bg-slate-100 border-neutral-400 text-sm text-black rounded-2xl py-1 px-2 m-1">{{topic}}</span>
+    </div>
+    <div class="my-4">
+      <p *ngFor="let line of generatedPoem" class="flex justify-center text-white">{{line}}</p>
     </div>
   </div>
 </div>
