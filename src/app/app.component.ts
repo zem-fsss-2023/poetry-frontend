@@ -10,7 +10,6 @@ import { PoetryService } from './poetry.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
-  title = 'poetry-frontend';
   poetEntered: boolean = false;
   poetName: string = '';
   poems: any = [];
@@ -47,6 +46,8 @@ export class AppComponent implements OnDestroy {
     this.topicInput = '';
     this.topics = [];
     this.generatedPoem = [];
+    this.wikiTitle = '';
+    this.wikiContent = '';
 
     this.searchButtonDisabled = true;
 
