@@ -23,6 +23,9 @@ export class AppComponent implements OnDestroy {
   wikiTitle: string = '';
   wikiContent: string = '';
 
+  searchButtonDisabled: boolean = false;
+  writeButtonDisabled: boolean = false;
+
   private ngUnsubscribe$ = new Subject();
 
   constructor(
@@ -45,8 +48,11 @@ export class AppComponent implements OnDestroy {
     this.topics = [];
     this.generatedPoem = [];
 
+    this.searchButtonDisabled = true;
+
     this.poetryService.getPoems(this.poetName).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
       this.poems = response;
+      this.searchButtonDisabled = false;
     });
 
     this.wikiService.getWiki(this.poetName).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
@@ -63,13 +69,14 @@ export class AppComponent implements OnDestroy {
   }
 
   writePoem() {
+    this.writeButtonDisabled = true;
     this.generatedPoem = [];
+
     this.gptService.writePoem(this.poetName, []).pipe(takeUntil(this.ngUnsubscribe$)).subscribe(response => {
       this.generatedPoem = response.split(/\r?\n/);
-      console.log(this.generatedPoem)
+      this.writeButtonDisabled = false;
+      this.topics = [];
     });
-
-    this.topics = [];
   }
 
   ngOnDestroy(): void {

@@ -30,14 +30,14 @@
         </select>
       </div>
     </div>
-    <button (click)="getPoems()" class="rounded-full w-48 px-4 py-1 my-1 mx-2 bg-gray-300 text-black hover:bg-gray-100 transition-colors duration-200">
+    <button [disabled]="searchButtonDisabled" (click)="getPoems()" class="rounded-full w-48 px-4 py-1 my-1 mx-2 bg-gray-300 text-black disabled:text-gray-400 border-2 border-gray-300 enabled:hover:border-rose-500 enabled:hover:bg-rose-200 transition-colors duration-200">
       Search Poet
     </button>
   </div>
 
   <div *ngIf="poetEntered" class="flex flex-col sm:flex-row my-4 max-h-96 rounded-full custom-scrollbar">
     <!-- About section -->
-    <div class="basis-2/5 p-5 my-4 overflow-auto h-4/5">
+    <div class="basis-2/5 p-5 my-4 overflow-auto h-5/6">
       <h2 class="text-4xl font-bold flex justify-center" style="font-family: 'Brush Script MT'">{{wikiTitle}}</h2>
       <p class="flex justify-center">{{wikiContent}}</p>
     </div>
@@ -45,7 +45,7 @@
     <!-- List of poems -->
     <div class="basis-3/5 my-4 overflow-y-scroll">
       <div *ngFor="let poem of poems" class="my-14 first:mt-5 last:mb-5">
-        <h2 class="text-4xl font-bold cursive flex justify-center" style="font-family: 'Brush Script MT'">{{poem.title}}</h2>
+        <h2 class="text-3xl font-bold cursive flex justify-center" style="font-family: 'Brush Script MT'">{{poem.title}}</h2>
         <h3 class="text-md italic flex justify-center text-gray-500">by {{poem.author}}</h3>
         <div class="my-2">
           <p *ngFor="let line of poem.lines" class="flex justify-center">{{line}}</p>
@@ -55,20 +55,20 @@
   </div>
 
   <!-- Write poem section -->
-  <div *ngIf="poetEntered" class="my-4 mx-auto max-w-3xl">
+  <div *ngIf="poetEntered" class="my-8 mx-auto max-w-3xl">
     <div class="flex justify-between">
       <div>
         <input [(ngModel)]="topicInput" class="px-3 py-1 my-1 mx-2 w-48 border-gray-700 border-2 text-black rounded-full" type="search">
-        <button (click)="addTopic()" class="rounded-full w-40 px-4 py-1 my-1 mx-2 bg-gray-300 text-black hover:bg-gray-100 transition-colors duration-200">
+        <button  (click)="addTopic()" class="rounded-full w-40 px-4 py-1 my-1 mx-2 bg-gray-300 text-black hover:bg-rose-200 border-2 border-gray-300 enabled:hover:border-rose-500 transition-colors duration-200">
           Add Topic
         </button>
       </div>
-      <button (click)="writePoem()" class="rounded-full w-40 px-4 py-1 m-1 bg-gray-300 text-black hover:bg-pink-300 transition-colors duration-200">
+      <button [disabled]="writeButtonDisabled" (click)="writePoem()" class="rounded-full w-40 px-4 py-1 m-1 bg-gray-300 text-black enabled:hover:bg-rose-200 border-2 border-gray-300 enabled:hover:border-rose-500 disabled:text-gray-400 transition-colors duration-200">
         Write Poem
       </button>
     </div>
-    <div class="my-2">
-      <span *ngFor="let topic of topics" class="border-2 bg-slate-100 border-neutral-400 text-sm text-black rounded-2xl py-1 px-2 m-1">{{topic}}</span>
+    <div class="my-4">
+      <span *ngFor="let topic of topics" class="border-2 bg-slate-100 border-neutral-400 text-md text-black rounded-2xl py-1 px-2 m-1">{{topic}}</span>
     </div>
     <div class="my-4">
       <p *ngFor="let line of generatedPoem" class="flex justify-center text-white">{{line}}</p>
